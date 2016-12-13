@@ -139,7 +139,7 @@ Strand <- c()
 setwd("C:\\Users/grossar/Bioinform//DATA/ideogram_data/")
 
 file <- "Fib_abnormalitites.txt" ; scaleFactor <- 0.75
-file <- "PBMC_abnormalities.txt" ; scaleFactor <- 1.44
+file <- "PBMC_abnormalities.txt" ; scaleFactor <- 1.12
 file <- "LCL_abnormalities.txt" ; scaleFactor <- 3
 file <- "Epithelial_abnormalities.txt" ; scaleFactor <- 7.385
 file <- "iPSCs_abnormalities.txt" ; scaleFactor <- 7.385
