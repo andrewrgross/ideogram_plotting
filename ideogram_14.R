@@ -70,13 +70,13 @@ chromFormat <- function(chromStart,chromEnd,chromLength,grSub,abnormSub) {
     #print(paste("barPos:",as.character(barPos1),as.character(barPos2)))
     colorList <- c(colorList,"white")                 # assigns a color to the relative position on the color list
     ##### For full length abnormaltities, the color is set and then the range is defined as all positions
-    if (abnormType == "tri" | abnormType == "mono" | abnormType == "der" | abnormType == "blank") { 
+    if (abnormType == "tri" | abnormType == "mono" | abnormType == "der-full" | abnormType == "blank") { 
       if (abnormType == "tri") {
         colorList <- c(colorList,10000)
       } else if (abnormType == "mono") {
         colorList <- c(colorList, 20000)  
-      } else if (abnormType == "der") {
-        colorList <- c(colorList, 60000) 
+      } else if (abnormType == "der-full") {
+        colorList <- c(colorList, 70000) 
       } else if (abnormType == "blank") {
         colorList <- c(colorList, "white")
       }
@@ -85,12 +85,13 @@ chromFormat <- function(chromStart,chromEnd,chromLength,grSub,abnormSub) {
       afterBar <- length(gr)-chromEnd
       #print(barLength)
       ##### For greater/less than abnorms, color is set, then the bar is defined and the range is set to include all above or below
-    } else if (abnormType == "trans" | abnormType == "del" | abnormType == "add" | abnormType == "inv" | abnormType == "dup") {                  # If the abnormality is a translocation or a deletion, process as such
+    } else if (abnormType == "trans" | abnormType == "del" | abnormType == "add" | abnormType == "inv" | abnormType == "dup" | abnormType == "der") {                  # If the abnormality is a translocation or a deletion, process as such
       # Colors are set
       if        (abnormType == "trans") {colorList <- c(colorList, 50000)
       } else if (abnormType == "del")   {colorList <- c(colorList, 40000)             
       } else if (abnormType == "inv")   {colorList <- c(colorList, 60000)
-      } else if (abnormType == "dup")   {colorList <- c(colorList, 30000)}
+      } else if (abnormType == "dup")   {colorList <- c(colorList, 30000)
+      } else if (abnormType == "der")   {colorList <- c(colorList, 70000)}
       if (grepl("p",band1) == TRUE) {        # generates bar if on p arm
         barPos1 <- max(barPos1)
         arm <- "p"
@@ -136,17 +137,20 @@ chromLength <- c()
 Range <- c()
 Strand <- c()
 
-setwd("C:\\Users/grossar/Bioinform//DATA/ideogram_data/")
+#setwd("C:/Users/grossar/Bioinform/DATA/ideogram_data/")
+setwd("Z:/Data/Ideograms/")
+
 
 file <- "Fib_abnormalitites.txt" ; scaleFactor <- 0.75
-file <- "PBMC_abnormalities.txt" ; scaleFactor <- 0.948
+file <- "PBMC_abnormalities.txt" ; scaleFactor <- 0.355
 file <- "LCL_abnormalities.txt" ; scaleFactor <- 3
 file <- "Epithelial_abnormalities.txt" ; scaleFactor <- 7.385
 file <- "iPSCs_abnormalities.txt" ; scaleFactor <- 7.385
 file <- "Legend2.txt" ; scaleFactor <- 1
 
 abnormFull<-read.table(file)
-colorSet<-c("#006837", "#A50026", "#1A9850", "#D73027", "#313695", "#4575B4")  # Final choice
+#colorSet<-c("#006837", "#A50026", "#1A9850", "#D73027", "#313695", "#4575B4")  # Final choice
+colorSet<-c("#006837", "#A50026", "#1A9850", "#D73027", "#313695", "#4575B4", "#b8b8b8")  # Final choice
 
 maxY <- 12
 chromosomes <- levels(abnormFull[,1])
@@ -210,4 +214,5 @@ plotOnIdeo(chrom=seqlevels(gr),            # which chrom to plot?
 
 ### Output instructions ###################################################################
 
-# Once generated, output as a png of 5400 px wide, 800 tall.
+# Once generated, output as a png of 5400 px wide, 900 tall.  
+# Originally, this was 5400 x 800, but for some reason the margins have changed.
