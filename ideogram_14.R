@@ -121,7 +121,7 @@ chromFormat <- function(chromStart,chromEnd,chromLength,grSub,abnormSub) {
     }
     barRange <- Rle(c(0,barX,0),c(beforeBar,barLength,afterBar))
     #print(c(beforeBar,barLength,afterBar))
-    blankBar <- Rle(c(0,barX-scaleFactor+0.2,0),c(beforeBar,barLength,afterBar))
+    blankBar <- Rle(c(0,barX-scaleFactor,0),c(beforeBar,barLength,afterBar))
     dataList[[length(dataList)+1]] <- blankBar
     dataList[[length(dataList)+1]] <- barRange
     dataNames <- c(dataNames,paste0(c("","Blank_"),as.character(chromosomes[h]),"-",as.character(i)))
@@ -138,13 +138,15 @@ Range <- c()
 Strand <- c()
 
 #setwd("C:/Users/grossar/Bioinform/DATA/ideogram_data/")
-setwd("Z:/Data/Ideograms/")
+#setwd("Z:/Data - DEPRECIATED/Ideograms")
+setwd("C:/Users/grossar/Box/Sareen Lab Shared/Data/Ideograms/")
 
-
+file <- "Expanded_abnorms.txt"  ; scaleFactor <- 0.75
+file <- "Unexpanded_abnorms.txt"; scaleFactor <- 0.340
 file <- "Fib_abnormalitites.txt" ; scaleFactor <- 0.75
 file <- "PBMC_abnormalities.txt" ; scaleFactor <- 0.355
-file <- "LCL_abnormalities.txt" ; scaleFactor <- 3
-file <- "Epithelial_abnormalities.txt" ; scaleFactor <- 7.385
+file <- "LCL_abnorms.txt" ; scaleFactor <- 5.165
+file <- "Epithelial_abnorms.txt" ; scaleFactor <- 6.962
 file <- "iPSCs_abnormalities.txt" ; scaleFactor <- 7.385
 file <- "Legend2.txt" ; scaleFactor <- 1
 
