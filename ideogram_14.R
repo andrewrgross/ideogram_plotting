@@ -142,12 +142,12 @@ Strand <- c()
 setwd("C:/Users/grossar/Box/Sareen Lab Shared/Data/Ideograms/")
 
 file <- "Expanded_abnorms.txt"  ; scaleFactor <- 0.75
-file <- "Unexpanded_abnorms.txt"; scaleFactor <- 0.340
-file <- "Fib_abnormalitites.txt" ; scaleFactor <- 0.75
-file <- "PBMC_abnormalities.txt" ; scaleFactor <- 0.355
-file <- "LCL_abnorms.txt" ; scaleFactor <- 5.165
-file <- "Epithelial_abnorms.txt" ; scaleFactor <- 6.962
-file <- "iPSCs_abnormalities.txt" ; scaleFactor <- 7.385
+file <- "Unexpanded_abnorms.txt"; scaleFactor <- 0.242
+#file <- "Fib_abnormalitites.txt" ; scaleFactor <- 0.75
+#file <- "PBMC_abnormalities.txt" ; scaleFactor <- 0.355
+#file <- "LCL_abnorms.txt" ; scaleFactor <- 5.165
+#file <- "Epithelial_abnorms.txt" ; scaleFactor <- 6.962
+#file <- "iPSCs_abnormalities.txt" ; scaleFactor <- 7.385
 file <- "Legend2.txt" ; scaleFactor <- 1
 
 abnormFull<-read.table(file)
